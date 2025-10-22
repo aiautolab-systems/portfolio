@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: 'Alper Ozkan',
   title: 'Lead Software Development Engineer in Test',
-  tagline: 'Designing AI-augmented quality engineering programs that keep releases fast, reliable, and observable.',
+  tagline: 'Architecting AI-powered test automation frameworks and intelligent quality gates that transform manual testing into self-healing, predictive QE systems.',
   location: 'New Smyrna Beach, FL',
   email: 'ozkanalpi@yahoo.com',
   phone: '732 573 5195',
