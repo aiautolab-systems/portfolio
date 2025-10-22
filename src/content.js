@@ -6,7 +6,7 @@ export const personalInfo = {
   email: 'ozkanalpi@yahoo.com',
   phone: '732 573 5195',
   linkedin: 'https://www.linkedin.com/in/ozkan-alpi/',
-  resumeUrl: '/alper-ozkan-resume.pdf',
+  resumeUrl: import.meta.env.BASE_URL + 'alper-ozkan-resume.pdf',
 };
 
 export const summary = `SDET with 8+ years building test automation for web, API, and mobile platforms across insurance, gaming, and SaaS. Experienced in shaping shift-left strategies, instrumenting CI/CD pipelines, and pairing AI/GenAI tooling with classic automation to drive coverage, reliability, and analytics.`;
