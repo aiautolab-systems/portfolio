@@ -11,8 +11,8 @@ Personal portfolio site for Alper Oktem built with React and Vite.
 ## Deployment (GitHub Pages)
 - Every push to `main` triggers `.github/workflows/deploy.yml`
 - The workflow builds the Vite app and uploads `dist/` to GitHub Pages
-- First time only: in GitHub go to `Settings → Pages` and ensure **Source** is set to **GitHub Actions**
-- The published site will be available at `https://<your-org>.github.io/protfloi/`
+- First time only: go to GitHub `Settings → Pages` and set **Build and deployment → Source** to **GitHub Actions**
+- The published site will be available at `https://<your-org>.github.io/portfolio/`
 
 ### Custom Domain
 - Add a `CNAME` file to the published branch with your domain name

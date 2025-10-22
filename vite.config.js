@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/protfloi/', // Match the GitHub repository name for Pages
+  base: '/portfolio/', // Match the repository name for GitHub Pages
 })
