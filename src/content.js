@@ -99,9 +99,11 @@ export const experience = [
 export const certifications = [
   {
     name: 'ISTQB Certified Tester',
+    url: 'https://atsqa.org/certified-testers/profile/445a2fbed11b40e18e776e818ee0834e',
   },
   {
     name: 'Kubernetes and Cloud Native Essentials',
+    url: 'https://training.linuxfoundation.org/training/kubernetes-and-cloud-native-essentials-lfs250/',
   },
 ];
 
