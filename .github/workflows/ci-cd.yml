@@ -34,6 +34,9 @@ jobs:
       run: npm ci
 
     - name: Build application
+      # In CI we should build the production bundle rather than run the dev server
+      # `npm run dev` is interactive / long-running and will block subsequent steps.
+      # Build produces static files in `dist` which we serve below for tests.
       run: npm run build
 
     - name: Serve built application
@@ -42,7 +45,7 @@ jobs:
         sleep 5
 
     - name: Run Playwright tests
-      run: npx playwright test tests/seed.spec.ts tests/e2e/core-functionality.spec.ts --reporter=list
+      run: npx playwright test tests --reporter=list
 
 
     - name: Upload test results

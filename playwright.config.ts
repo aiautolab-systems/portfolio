@@ -18,7 +18,7 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     locale: 'en-US',
     headless: true,
-    baseURL: process.env.CI ? 'http://127.0.0.1:5173/portfolio/' : 'http://localhost:5173',
+    baseURL: 'http://localhost:5173',
     // Add some default timeouts
     actionTimeout: 10000,
     navigationTimeout: 30000,
@@ -34,10 +34,10 @@ export default defineConfig({
     },
   ],
   timeout: process.env.CI ? 60000 : 240000, // Shorter timeout in CI
-  webServer: process.env.CI ? undefined : {
-    command: 'npm run dev',
-    url: 'http://localhost:5173',
-    reuseExistingServer: true,
-    timeout: 180 * 1000,
-  },
+  // webServer: process.env.CI ? undefined : {
+  //   command: 'npm run dev',
+  //   url: 'http://localhost:5173',
+  //   reuseExistingServer: true,
+  //   timeout: 180 * 1000,
+  // },
 })
