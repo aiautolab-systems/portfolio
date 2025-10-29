@@ -30,15 +30,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Setup container environment
-      run: |
-        mkdir -p /root/.docker
-        chmod 700 /root/.docker
-        echo '{}' > /root/.docker/config.json
-        chmod 600 /root/.docker/config.json
-
     - name: Install dependencies
       run: npm ci
+
+    - name: Run Application tests
+      run: npm run dev
 
     - name: Run Playwright tests
       run: npm run test
