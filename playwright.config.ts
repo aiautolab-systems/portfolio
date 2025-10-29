@@ -33,11 +33,11 @@ export default defineConfig({
       },
     },
   ],
-  timeout: 240000,
+  timeout: process.env.CI ? 60000 : 240000, // Shorter timeout in CI
   webServer: {
     command: 'npm run dev',
     url: process.env.CI ? 'http://127.0.0.1:5173' : 'http://localhost:5173',
     reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
+    timeout: 180 * 1000, // 3 minutes for server startup
   },
 })
