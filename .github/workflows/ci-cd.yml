@@ -24,10 +24,18 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.56.1-noble
+      options: --user root
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+
+    - name: Setup container environment
+      run: |
+        mkdir -p /root/.docker
+        chmod 700 /root/.docker
+        echo '{}' > /root/.docker/config.json
+        chmod 600 /root/.docker/config.json
 
     - name: Install dependencies
       run: npm ci
@@ -37,6 +45,7 @@ jobs:
       env:
         CI: true
         HOME: /root
+        DOCKER_CONFIG: /root/.docker
 
     - name: Upload test results
       if: always()
