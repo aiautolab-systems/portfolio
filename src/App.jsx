@@ -18,27 +18,27 @@ function App() {
       <div className="background-gradient" aria-hidden="true" />
       <div className="background-noise" aria-hidden="true" />
 
-      <header className="site-header">
-        <a href="#about" className="brand" aria-label="Back to profile overview">
+      <header className="site-header" data-testid="site-header">
+        <a href="#about" className="brand" aria-label="Back to profile overview" data-testid="brand-link">
           <span className="brand-mark" aria-hidden="true">
             AO
           </span>
           <span className="brand-text">
-            <span className="brand-name">{personalInfo.name}</span>
-            <span className="brand-role">{personalInfo.title}</span>
+            <span className="brand-name" data-testid="brand-name">{personalInfo.name}</span>
+            <span className="brand-role" data-testid="brand-role">{personalInfo.title}</span>
           </span>
         </a>
 
-        <nav className="site-nav" aria-label="Primary">
+        <nav className="site-nav" aria-label="Primary" data-testid="primary-nav">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href}>
+            <a key={link.href} href={link.href} data-testid={`nav-link-${link.label.toLowerCase()}`}>
               {link.label}
             </a>
           ))}
         </nav>
 
         <div className="header-actions">
-          <a className="capsule-link" href={`mailto:${personalInfo.email}`}>
+          <a className="capsule-link" href={`mailto:${personalInfo.email}`} data-testid="header-contact-link">
             Let&apos;s Talk
           </a>
         </div>
@@ -49,19 +49,20 @@ function App() {
           <div className="hero-grid">
             <div className="hero-content">
               <p className="hero-eyebrow">Quality Engineering Leadership</p>
-              <h1 id="hero-heading">{personalInfo.name}</h1>
-              <p className="hero-title">{personalInfo.title}</p>
+              <h1 id="hero-heading" data-testid="hero-name">{personalInfo.name}</h1>
+              <p className="hero-title" data-testid="hero-title">{personalInfo.title}</p>
               <p className="hero-lede">{personalInfo.tagline}</p>
 
               <div className="hero-actions">
                 <a
                   className="action-button primary"
                   href={`mailto:${personalInfo.email}?subject=Hi%20Alper`}
+                  data-testid="hero-start-conversation-button"
                 >
                   Start a Conversation
                 </a>
                 {personalInfo.resumeUrl ? (
-                  <a className="action-button" href={personalInfo.resumeUrl} download>
+                  <a className="action-button" href={personalInfo.resumeUrl} download data-testid="hero-download-resume-button">
                     Download Resume
                   </a>
                 ) : null}
@@ -83,19 +84,19 @@ function App() {
                 <div>
                   <dt>Email</dt>
                   <dd>
-                    <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
+                    <a href={`mailto:${personalInfo.email}`} data-testid="hero-email-link">{personalInfo.email}</a>
                   </dd>
                 </div>
                 <div>
                   <dt>Phone</dt>
                   <dd>
-                    <a href={phoneHref}>{personalInfo.phone}</a>
+                    <a href={phoneHref} data-testid="hero-phone-link">{personalInfo.phone}</a>
                   </dd>
                 </div>
                 <div>
                   <dt>LinkedIn</dt>
                   <dd>
-                    <a href={personalInfo.linkedin} target="_blank" rel="noreferrer">
+                    <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" data-testid="hero-linkedin-link">
                       Connect
                     </a>
                   </dd>
@@ -130,14 +131,14 @@ function App() {
           <p className="profile-summary">{summary}</p>
         </section>
 
-        <section id="highlights" className="section feature-section" aria-labelledby="highlights-heading">
+        <section id="highlights" className="section feature-section" aria-labelledby="highlights-heading" data-testid="highlights-section">
           <div className="section-heading">
             <span className="section-eyebrow">Impact</span>
             <h2 id="highlights-heading">Recent outcomes I&apos;m proud to share</h2>
           </div>
           <div className="feature-grid">
             {highlights.map((item) => (
-              <article key={item.label} className="feature-card">
+              <article key={item.label} className="feature-card" data-testid="feature-card">
                 <span className="feature-stat">{item.stat}</span>
                 <h3>{item.label}</h3>
                 <p>{item.description}</p>
@@ -146,14 +147,14 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="section skills" aria-labelledby="skills-heading">
+        <section id="skills" className="section skills" aria-labelledby="skills-heading" data-testid="skills-section">
           <div className="section-heading">
             <span className="section-eyebrow">Toolkit</span>
             <h2 id="skills-heading">Tools and platforms I orchestrate</h2>
           </div>
           <div className="skill-groups">
             {skills.map((group) => (
-              <article key={group.category} className="skill-card">
+              <article key={group.category} className="skill-card" data-testid={`skill-category-${group.category.toLowerCase().replace(/[\s&]/g, '-')}`}>
                 <h3>{group.category}</h3>
                 <div className="chip-row">
                   {group.items.map((item) => (
@@ -167,14 +168,14 @@ function App() {
           </div>
         </section>
 
-        <section id="experience" className="section experience" aria-labelledby="experience-heading">
+        <section id="experience" className="section experience" aria-labelledby="experience-heading" data-testid="experience-section">
           <div className="section-heading">
             <span className="section-eyebrow">Journey</span>
             <h2 id="experience-heading">Experience shipping confident releases</h2>
           </div>
           <div className="experience-stack">
             {experience.map((role) => (
-              <article key={`${role.company}-${role.period}`} className="experience-card">
+              <article key={`${role.company}-${role.period}`} className="experience-card" data-testid="experience-card">
                 <header>
                   <div>
                     <span className="experience-company">{role.company}</span>
@@ -218,7 +219,7 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="section contact" aria-labelledby="contact-heading">
+        <section id="contact" className="section contact" aria-labelledby="contact-heading" data-testid="contact-section">
           <div className="section-heading">
             <span className="section-eyebrow">Next step</span>
             <h2 id="contact-heading">Let&apos;s build confident releases together</h2>
@@ -228,14 +229,14 @@ function App() {
             full-time or consulting engagements, remote or hybrid.
           </p>
           <div className="contact-actions">
-            <a className="action-button primary" href={`mailto:${personalInfo.email}`}>
+            <a className="action-button primary" href={`mailto:${personalInfo.email}`} data-testid="contact-email-button">
               Email Alper
             </a>
             <a className="action-button" href={phoneHref}>
               Call {personalInfo.phone}
             </a>
             {personalInfo.resumeUrl ? (
-              <a className="action-button subtle" href={personalInfo.resumeUrl} download>
+              <a className="action-button subtle" href={personalInfo.resumeUrl} download data-testid="contact-download-resume-button">
                 Download Resume
               </a>
             ) : null}

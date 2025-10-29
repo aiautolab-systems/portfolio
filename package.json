@@ -8,7 +8,13 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "test": "playwright test",
+    "test:e2e": "playwright test tests/e2e",
+    "test:component": "playwright test -c playwright-ct.config.ts",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -16,6 +22,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
+    "@playwright/experimental-ct-react": "^1.56.1",
+    "@playwright/test": "^1.56.1",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.4",
