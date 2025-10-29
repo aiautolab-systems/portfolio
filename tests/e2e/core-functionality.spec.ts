@@ -1,5 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
-import { getHomeUrl } from '../helpers/config';
+import { getHomeUrl, getSectionUrl } from '../helpers/config';
 
 test.describe('Portfolio Page - Core Functionality', () => {
   let page: Page;
@@ -70,19 +70,19 @@ test.describe('Portfolio Page - Core Functionality', () => {
   test('should work correctly with direct URL navigation', async () => {
     await gotoHome();
     // Test direct navigation to skills section
-    await page.goto('/#skills');
+  await page.goto(getSectionUrl('skills'));
     await page.waitForLoadState('domcontentloaded');
     await page.locator('#skills').scrollIntoViewIfNeeded();
     await expect(page.locator('#skills')).toBeVisible();
     
     // Test direct navigation to experience section
-    await page.goto('/#experience');
+  await page.goto(getSectionUrl('experience'));
     await page.waitForLoadState('domcontentloaded');
     await page.locator('#experience').scrollIntoViewIfNeeded();
     await expect(page.locator('#experience')).toBeVisible();
     
     // Test direct navigation to contact section
-    await page.goto('/#contact');
+  await page.goto(getSectionUrl('contact'));
     await page.waitForLoadState('domcontentloaded');
     await page.locator('#contact').scrollIntoViewIfNeeded();
     await expect(page.locator('#contact')).toBeVisible();

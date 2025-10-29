@@ -1,4 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
+import { getHomeUrl } from '../helpers/config';
 
 /**
  * Freelance Client Persona Tests
@@ -8,7 +9,7 @@ test.describe('Portfolio - Freelance Client Persona (Jennifer Walsh)', () => {
   let page: Page;
   const gotoHome = async () => {
     await page.setViewportSize({ width: 1280, height: 720 });
-    await page.goto('/');
+    await page.goto(getHomeUrl());
   };
 
   test.beforeAll(async ({ browser }) => {

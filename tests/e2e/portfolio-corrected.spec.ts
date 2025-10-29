@@ -1,4 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
+import { getHomeUrl, getSectionUrl } from '../helpers/config';
 
 /**
  * Portfolio Page - Corrected Tests Based on Actual HTML Structure
@@ -7,7 +8,7 @@ test.describe('Portfolio Page - Core Functionality (Corrected)', () => {
   let page: Page;
   const gotoHome = async () => {
     await page.setViewportSize({ width: 1280, height: 720 });
-    await page.goto('/');
+    await page.goto(getHomeUrl());
   };
 
   test.beforeAll(async ({ browser }) => {
@@ -165,13 +166,13 @@ test.describe('Portfolio Page - Core Functionality (Corrected)', () => {
   });
 
   test('should work correctly with direct URL navigation', async () => {
-    await page.goto('/#skills');
+    await page.goto(getSectionUrl('skills'));
     await expect(page.getByText('Tools and platforms I orchestrate')).toBeVisible();
 
-    await page.goto('/#experience');
+    await page.goto(getSectionUrl('experience'));
     await expect(page.getByText('Experience shipping confident releases')).toBeVisible();
 
-    await page.goto('/#contact');
+    await page.goto(getSectionUrl('contact'));
     await expect(page.getByText("Let's build confident releases together")).toBeVisible();
   });
 
@@ -197,7 +198,7 @@ test.describe('Portfolio Page - Hiring Manager Persona (Corrected)', () => {
   let page: Page;
   const gotoHome = async () => {
     await page.setViewportSize({ width: 1280, height: 720 });
-    await page.goto('/');
+    await page.goto(getHomeUrl());
   };
 
   test.beforeAll(async ({ browser }) => {

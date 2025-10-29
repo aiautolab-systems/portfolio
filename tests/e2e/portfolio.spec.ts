@@ -1,10 +1,11 @@
 import { test, expect, Page } from '@playwright/test';
+import { getHomeUrl } from '../helpers/config';
 
 test.describe('Portfolio E2E Tests', () => {
   let page: Page;
   const gotoHome = async () => {
     await page.setViewportSize({ width: 1280, height: 720 });
-    await page.goto('/');
+    await page.goto(getHomeUrl());
   };
 
   test.beforeAll(async ({ browser }) => {

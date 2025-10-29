@@ -1,4 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
+import { getHomeUrl } from '../helpers/config';
 
 /**
  * Technical Lead Persona Tests
@@ -8,7 +9,7 @@ test.describe('Portfolio - Technical Lead Persona (Marcus Rodriguez)', () => {
   let page: Page;
   const gotoHome = async () => {
     await page.setViewportSize({ width: 1280, height: 720 });
-    await page.goto('/');
+    await page.goto(getHomeUrl());
   };
 
   test.beforeAll(async ({ browser }) => {
