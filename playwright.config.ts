@@ -18,7 +18,6 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     locale: 'en-US',
     headless: true,
-    baseURL: process.env.CI ? 'http://localhost:5173/portfolio/' : 'http://localhost:5173',
     // Add some default timeouts
     actionTimeout: 10000,
     navigationTimeout: 30000,
