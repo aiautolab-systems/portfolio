@@ -39,8 +39,11 @@ jobs:
       # Using build+serve mirrors the production artifacts and is robust in CI.
       run: |
         npm run build
-        # serve the dist folder on port 5173 in background
-        npx serve dist -l 5173 &
+        # Create a temporary directory structure to serve the built app at /portfolio/
+        mkdir -p temp_serve/portfolio
+        cp -r dist/* temp_serve/portfolio/
+        # serve the temp folder on port 5173 in background
+        npx serve temp_serve -l 5173 --cors &
         # wait for the server to be ready before running tests
         npx wait-on http://localhost:5173
         # run Playwright tests
