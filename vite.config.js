@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/portfolio/', // Match the repository name for GitHub Pages
+  base: process.env.NODE_ENV === 'production' ? '/portfolio/' : '/', // Only use /portfolio/ base for production builds
 })
