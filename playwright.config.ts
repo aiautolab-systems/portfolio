@@ -6,7 +6,7 @@ export default defineConfig({
   forbidOnly: false, // Allow .only during development
   outputDir: './reports',
   retries: 1, // Retry failed tests once
-  workers: 1,
+  workers: process.env.CI ? 8 : undefined, // undefined uses all CPU cores
   reporter: [
     ['list'],
     ['junit', { outputFile: 'results/junit-report.xml' }],
