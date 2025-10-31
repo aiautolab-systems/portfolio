@@ -7,7 +7,27 @@
     const config = {
         apiUrl: 'http://localhost:5213/api/analytics/track', // Updated to current API URL
         sessionDuration: 30 * 60 * 1000, // 30 minutes
+        disableOnLocalhost: true, // Avoid noisy errors when developing without the analytics API
     };
+
+    const LOCAL_HOSTNAMES = ['localhost', '127.0.0.1'];
+    const isLocalEnvironment = LOCAL_HOSTNAMES.includes(window.location.hostname) || window.location.hostname.endsWith('.local');
+
+    function isTrackingEnabled() {
+        if (!config.apiUrl) {
+            return false;
+        }
+
+        if (window.__PORTFOLIO_ANALYTICS_DISABLED__ === true) {
+            return false;
+        }
+
+        if (config.disableOnLocalhost && isLocalEnvironment && window.__PORTFOLIO_ENABLE_LOCAL_ANALYTICS__ !== true) {
+            return false;
+        }
+
+        return true;
+    }
 
     // Get or create session ID
     function getSessionId() {
@@ -71,6 +91,10 @@
 
     // Track event
     async function trackEvent(eventType, customData = {}) {
+        if (!isTrackingEnabled()) {
+            return;
+        }
+
         const { browser, os } = getBrowserInfo();
         const utmParams = getUtmParams();
         
@@ -91,15 +115,18 @@
         };
 
         try {
-            await fetch(config.apiUrl, {
+            const response = await fetch(config.apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data),
             });
+            if (!response.ok) {
+                console.warn('Analytics tracking warning:', response.status, response.statusText);
+            }
         } catch (error) {
-            console.error('Analytics tracking error:', error);
+            console.warn('Analytics tracking warning:', error);
         }
     }
 

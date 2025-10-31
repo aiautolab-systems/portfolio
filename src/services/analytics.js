@@ -1,4 +1,24 @@
 const API_BASE_URL = 'https://portfolio-analytics-api-production.up.railway.app/api/analytics';
+const LOCAL_HOSTNAMES = ['localhost', '127.0.0.1'];
+
+function isAnalyticsEnabled() {
+  if (typeof window === 'undefined') {
+    return false;
+  }
+
+  const hostname = window.location.hostname || '';
+  const isLocal = LOCAL_HOSTNAMES.includes(hostname) || hostname.endsWith('.local');
+
+  if (window.__PORTFOLIO_ANALYTICS_DISABLED__ === true) {
+    return false;
+  }
+
+  if (isLocal && window.__PORTFOLIO_ENABLE_LOCAL_ANALYTICS__ !== true) {
+    return false;
+  }
+
+  return true;
+}
 
 class AnalyticsService {
   constructor() {
@@ -20,6 +40,10 @@ class AnalyticsService {
   }
 
   async track(eventType, eventData = {}) {
+    if (!isAnalyticsEnabled()) {
+      return;
+    }
+
     try {
       const payload = {
         eventType,
@@ -52,6 +76,10 @@ class AnalyticsService {
   }
 
   async getStats() {
+    if (!isAnalyticsEnabled()) {
+      return null;
+    }
+
     try {
       const response = await fetch(`${API_BASE_URL}/stats`);
       if (response.ok) {

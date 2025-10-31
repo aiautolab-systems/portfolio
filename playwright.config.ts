@@ -10,7 +10,6 @@ export default defineConfig({
   reporter: [
     ['list'],
     ['junit', { outputFile: 'results/junit-report.xml' }],
-    ['html', { outputFolder: 'results/html-report' }],
   ],
   use: {
     testIdAttribute: 'data-testid',

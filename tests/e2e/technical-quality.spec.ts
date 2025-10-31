@@ -14,6 +14,22 @@ test.describe('Portfolio - Technical Quality and Edge Cases', () => {
 
   test.beforeAll(async ({ browser }) => {
     page = await browser.newPage();
+    await page.addInitScript(() => {
+      (window as typeof window & { __PORTFOLIO_ANALYTICS_DISABLED__?: boolean }).__PORTFOLIO_ANALYTICS_DISABLED__ = true;
+    });
+    await page.route('https://www.google-analytics.com/*', route => {
+      route.fulfill({ status: 204, body: '' });
+    });
+    await page.route('https://www.googletagmanager.com/*', route => {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/javascript',
+        body: '',
+      });
+    });
+    await page.route('https://portfolio-analytics-api-production.up.railway.app/*', route => {
+      route.fulfill({ status: 204, body: '' });
+    });
     await gotoHome();
   });
 
