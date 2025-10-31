@@ -23,13 +23,16 @@ class AnalyticsService {
     try {
       const payload = {
         eventType,
-        page: window.location.pathname,
+        pageUrl: window.location.pathname,
+        pageTitle: document.title,
         referrer: document.referrer,
-        userAgent: navigator.userAgent,
-        timestamp: new Date().toISOString(),
         sessionId: this.sessionId,
-        userId: this.userId,
-        ...eventData
+        viewportWidth: window.innerWidth,
+        viewportHeight: window.innerHeight,
+        customData: {
+          userId: this.userId,
+          ...eventData
+        }
       };
 
       const response = await fetch(`${API_BASE_URL}/track`, {
