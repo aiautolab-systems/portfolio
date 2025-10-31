@@ -8,8 +8,16 @@ import {
   certifications,
   navLinks,
 } from './content'
+import { useAnalytics } from './hooks/useAnalytics'
 
 function App() {
+  const {
+    trackEmailClick,
+    trackPhoneClick,
+    trackResumeDownload,
+    trackLinkedInClick,
+    trackClick,
+  } = useAnalytics()
   const phoneHref = `tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`
   const currentRole = experience[0]
 
@@ -38,7 +46,12 @@ function App() {
         </nav>
 
         <div className="header-actions">
-          <a className="capsule-link" href={`mailto:${personalInfo.email}`} data-testid="header-contact-link">
+          <a 
+            className="capsule-link" 
+            href={`mailto:${personalInfo.email}`} 
+            data-testid="header-contact-link"
+            onClick={() => trackEmailClick()}
+          >
             Let&apos;s Talk
           </a>
         </div>
@@ -58,11 +71,18 @@ function App() {
                   className="action-button primary"
                   href={`mailto:${personalInfo.email}?subject=Hi%20Alper`}
                   data-testid="hero-start-conversation-button"
+                  onClick={() => trackEmailClick()}
                 >
                   Start a Conversation
                 </a>
                 {personalInfo.resumeUrl ? (
-                  <a className="action-button" href={personalInfo.resumeUrl} download data-testid="hero-download-resume-button">
+                  <a 
+                    className="action-button" 
+                    href={personalInfo.resumeUrl} 
+                    download 
+                    data-testid="hero-download-resume-button"
+                    onClick={() => trackResumeDownload()}
+                  >
                     Download Resume
                   </a>
                 ) : null}
@@ -71,6 +91,7 @@ function App() {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => trackLinkedInClick()}
                 >
                   View LinkedIn
                 </a>
@@ -84,19 +105,37 @@ function App() {
                 <div>
                   <dt>Email</dt>
                   <dd>
-                    <a href={`mailto:${personalInfo.email}`} data-testid="hero-email-link">{personalInfo.email}</a>
+                    <a 
+                      href={`mailto:${personalInfo.email}`} 
+                      data-testid="hero-email-link"
+                      onClick={() => trackEmailClick()}
+                    >
+                      {personalInfo.email}
+                    </a>
                   </dd>
                 </div>
                 <div>
                   <dt>Phone</dt>
                   <dd>
-                    <a href={phoneHref} data-testid="hero-phone-link">{personalInfo.phone}</a>
+                    <a 
+                      href={phoneHref} 
+                      data-testid="hero-phone-link"
+                      onClick={() => trackPhoneClick()}
+                    >
+                      {personalInfo.phone}
+                    </a>
                   </dd>
                 </div>
                 <div>
                   <dt>LinkedIn</dt>
                   <dd>
-                    <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" data-testid="hero-linkedin-link">
+                    <a 
+                      href={personalInfo.linkedin} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      data-testid="hero-linkedin-link"
+                      onClick={() => trackLinkedInClick()}
+                    >
                       Connect
                     </a>
                   </dd>
@@ -113,9 +152,14 @@ function App() {
               </div>
               <div className="panel-card contact-card">
                 <span className="panel-label">Let&apos;s Connect</span>
-                <a href={`mailto:${personalInfo.email}`}>Email</a>
-                <a href={phoneHref}>Call</a>
-                <a href={personalInfo.linkedin} target="_blank" rel="noreferrer">
+                <a href={`mailto:${personalInfo.email}`} onClick={() => trackEmailClick()}>Email</a>
+                <a href={phoneHref} onClick={() => trackPhoneClick()}>Call</a>
+                <a 
+                  href={personalInfo.linkedin} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  onClick={() => trackLinkedInClick()}
+                >
                   LinkedIn
                 </a>
               </div>
@@ -207,6 +251,7 @@ function App() {
                   href={cert.url}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => trackClick('certification', cert.name)}
                 >
                   {cert.name}
                 </a>
@@ -229,14 +274,29 @@ function App() {
             full-time or consulting engagements, remote or hybrid.
           </p>
           <div className="contact-actions">
-            <a className="action-button primary" href={`mailto:${personalInfo.email}`} data-testid="contact-email-button">
+            <a 
+              className="action-button primary" 
+              href={`mailto:${personalInfo.email}`} 
+              data-testid="contact-email-button"
+              onClick={() => trackEmailClick()}
+            >
               Email Alper
             </a>
-            <a className="action-button" href={phoneHref}>
+            <a 
+              className="action-button" 
+              href={phoneHref}
+              onClick={() => trackPhoneClick()}
+            >
               Call {personalInfo.phone}
             </a>
             {personalInfo.resumeUrl ? (
-              <a className="action-button subtle" href={personalInfo.resumeUrl} download data-testid="contact-download-resume-button">
+              <a 
+                className="action-button subtle" 
+                href={personalInfo.resumeUrl} 
+                download 
+                data-testid="contact-download-resume-button"
+                onClick={() => trackResumeDownload()}
+              >
                 Download Resume
               </a>
             ) : null}
