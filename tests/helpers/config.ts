@@ -6,6 +6,11 @@
  * Get the base URL for tests based on environment
  */
 export function getBaseUrl(): string {
+  // If PRODUCTION env is set, use the live site
+  if (process.env.PRODUCTION === 'true') {
+    return 'https://aiautolab-systems.github.io/portfolio/';
+  }
+
   if (process.env.CI) {
     // In CI, we serve the built app at /portfolio/ path
     return 'http://localhost:5173/portfolio/';
