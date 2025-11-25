@@ -137,9 +137,9 @@ test.describe('Portfolio - Industry Peer Persona (David Kumar)', () => {
   test('should show alignment with modern DevOps and cloud practices', async () => {
     await gotoHome();
     await page.getByRole('link', { name: 'Skills' }).click();
-    
+
     // Modern DevOps tools
-    await expect(page.getByTestId('skill-category-devops---cloud').getByText('Azure DevOps')).toBeVisible();
+    await expect(page.getByTestId('skill-category-devops---cloud-infrastructure').getByText('Azure DevOps')).toBeVisible();
     await expect(page.getByText('Jenkins').first()).toBeVisible();
     await expect(page.getByText('GitHub Actions').first()).toBeVisible();
     

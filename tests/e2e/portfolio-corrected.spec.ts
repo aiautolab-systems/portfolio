@@ -95,9 +95,9 @@ test.describe('Portfolio Page - Core Functionality (Corrected)', () => {
     await gotoHome();
     await page.getByRole('link', { name: 'Skills' }).click();
     await expect(page.getByRole('heading', { name: 'Languages & Scripting', level: 3 })).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Testing & Automation', level: 3 })).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'DevOps & Cloud', level: 3 })).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Observability & Quality Ops', level: 3 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Test Automation & Frameworks', level: 3 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'DevOps & Cloud Infrastructure', level: 3 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Quality Engineering & Platforms', level: 3 })).toBeVisible();
     await expect(page.getByText('TypeScript').first()).toBeVisible();
     await expect(page.getByText('Playwright').first()).toBeVisible();
     await expect(page.getByText('Cypress').first()).toBeVisible();

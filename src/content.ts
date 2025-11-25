@@ -35,16 +35,24 @@ export const skills = [
     items: ['TypeScript', 'JavaScript', 'Java', 'Python', 'C#', 'SQL', 'HTML', 'Gherkin'],
   },
   {
-    category: 'Testing & Automation',
-    items: ['Cypress', 'Playwright', 'Selenium WebDriver', 'REST Assured', 'Appium', 'Cucumber BDD/TDD', 'JUnit/TestNG', 'Postman'],
+    category: 'Test Automation & Frameworks',
+    items: ['Playwright', 'Cypress', 'Selenium WebDriver', 'Appium', 'Cucumber BDD/TDD', 'JUnit/TestNG', 'REST Assured', 'Postman', 'Karate DSL', 'WireMock', 'SoapUI', 'MSW', 'K6', 'JMeter', 'Faker.js'],
   },
   {
-    category: 'DevOps & Cloud',
-    items: ['Azure DevOps', 'Jenkins', 'GitHub Actions', 'AWS (EC2, S3, Lambda)', 'Docker', 'Kubernetes', 'Terraform'],
+    category: 'Quality Engineering & Platforms',
+    items: ['TestRail', 'Xray', 'Jira', 'Allure', 'BrowserStack', 'Sauce Labs', 'SonarQube', 'ESLint', 'Prettier', 'Grafana', 'Kibana', 'Mabl', 'Code Coverage', 'Shift-left Testing'],
   },
   {
-    category: 'Observability & Quality Ops',
-    items: ['Grafana', 'Kibana', 'SonarQube', 'AI/GenAI Testing Agents', 'Mabl', 'Shift-left Testing'],
+    category: 'AI & Automation Engineering',
+    items: ['LM Studio', 'LangGraph', 'MCP (Model Context Protocol)', 'AI/GenAI Testing Agents', 'Prompt Engineering', 'n8n', 'Event-Driven Architecture', 'Automation Workflows'],
+  },
+  {
+    category: 'DevOps & Cloud Infrastructure',
+    items: ['GitHub', 'GitHub Actions', 'Azure DevOps', 'Jenkins', 'AWS (EC2, S3, Lambda)', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD Pipelines'],
+  },
+  {
+    category: 'Backend & API Development',
+    items: ['FastAPI', 'REST APIs', 'GraphQL', 'Microservices', 'API Design', 'Service Testing'],
   },
 ];
 

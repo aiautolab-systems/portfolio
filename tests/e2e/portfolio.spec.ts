@@ -108,9 +108,11 @@ test.describe('Portfolio E2E Tests', () => {
     // Check for skill categories from content.js - look for text content instead of test IDs
     const skillCategories = [
       'Languages & Scripting',
-      'Testing & Automation',
-      'DevOps & Cloud',
-      'Observability & Quality Ops'
+      'Test Automation & Frameworks',
+      'Quality Engineering & Platforms',
+      'AI & Automation Engineering',
+      'DevOps & Cloud Infrastructure',
+      'Backend & API Development'
     ];
     
     for (const category of skillCategories) {
