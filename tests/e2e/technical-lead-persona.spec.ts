@@ -63,18 +63,18 @@ test.describe('Portfolio - Technical Lead Persona (Marcus Rodriguez)', () => {
     const currentRole = experienceCards.first();
     await expect(currentRole).toContainText('Lead Software Development Engineer in Test');
     await expect(currentRole).toContainText('Mentoring engineers on component and API testing');
-    await expect(currentRole).toContainText('Orchestrating CI/CD quality gates');
-    await expect(currentRole).toContainText('LLM-driven testing agents');
+    await expect(currentRole).toContainText('Architecting AI-powered test automation frameworks');
+    await expect(currentRole).toContainText('Instrumenting coverage and test analytics');
     
     // Previous roles should show technical depth
-    const derivcoRole = experienceCards.nth(1);
+    const derivcoRole = experienceCards.nth(2);
     await expect(derivcoRole).toContainText('1000+ UI automations');
     await expect(derivcoRole).toContainText('2000+ unit tests and 500+ E2E tests');
     await expect(derivcoRole).toContainText('coverage from 60% to 85%');
     await expect(derivcoRole).toContainText('100+ API tests');
     
     // Early roles show foundational experience
-    const heliotecaRole = experienceCards.nth(2);
+    const heliotecaRole = experienceCards.nth(3);
     await expect(heliotecaRole).toContainText('Java-based BDD frameworks');
     await expect(heliotecaRole).toContainText('Selenium, REST Assured, and JDBC');
   });
@@ -188,10 +188,10 @@ test.describe('Portfolio - Technical Lead Persona (Marcus Rodriguez)', () => {
     
     // Verify real implementation experience
     await page.getByRole('link', { name: 'Experience' }).click();
-    const currentRole = page.locator('.experience-card').first();
-    await expect(currentRole).toContainText('LLM-driven testing agents');
-    await expect(currentRole).toContainText('auto-generate scenarios');
-    await expect(currentRole).toContainText('heal flaky tests');
+    const tinubuRole = page.locator('.experience-card').nth(1);
+    await expect(tinubuRole).toContainText('LLM-driven testing agents');
+    await expect(tinubuRole).toContainText('auto-generate scenarios');
+    await expect(tinubuRole).toContainText('heal flaky tests');
     
     // Check highlights for innovation impact
     await page.getByRole('link', { name: 'Highlights' }).click();
@@ -222,17 +222,17 @@ test.describe('Portfolio - Technical Lead Persona (Marcus Rodriguez)', () => {
     await gotoHome();
     await page.getByRole('link', { name: 'Experience' }).click();
     
-    // Current leadership role
-    const currentRole = page.locator('.experience-card').first();
-    await expect(currentRole).toContainText('Leading regression automation initiatives');
-    await expect(currentRole).toContainText('Mentoring engineers');
+    // Previous leadership role
+    const tinubuRole = page.locator('.experience-card').nth(1);
+    await expect(tinubuRole).toContainText('Leading regression automation initiatives');
+    await expect(tinubuRole).toContainText('Mentoring engineers');
     
     // Process improvement and strategic thinking
-    await expect(currentRole).toContainText('prevent defects earlier in the lifecycle');
-    await expect(currentRole).toContainText('data-backed release decisions');
+    await expect(tinubuRole).toContainText('prevent defects earlier in the lifecycle');
+    await expect(tinubuRole).toContainText('data-backed release decisions');
     
     // Cross-functional collaboration
-    const gramreadRole = page.locator('.experience-card').nth(3);
+    const gramreadRole = page.locator('.experience-card').nth(4);
     await expect(gramreadRole).toContainText('Partnered with developers through Jira');
     
     // Team process improvements

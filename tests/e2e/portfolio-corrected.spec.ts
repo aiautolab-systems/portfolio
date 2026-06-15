@@ -80,8 +80,8 @@ test.describe('Portfolio Page - Core Functionality (Corrected)', () => {
     await gotoHome();
     await expect(page.getByText('Currently')).toBeVisible();
     await expect(page.getByLabel('Snapshot').getByRole('heading', { name: 'Lead Software Development Engineer in Test', level: 3 })).toBeVisible();
-    await expect(page.getByText('Tinubu Square – Insurance').first()).toBeVisible();
-    await expect(page.getByText('Sep 2024 – Present').first()).toBeVisible();
+    await expect(page.getByText('Thought Industries').first()).toBeVisible();
+    await expect(page.getByText('Jun 2026 – Present').first()).toBeVisible();
   });
 
   test('should have working header contact link', async () => {
@@ -108,11 +108,11 @@ test.describe('Portfolio Page - Core Functionality (Corrected)', () => {
   test('should display experience timeline with current role first', async () => {
     await gotoHome();
     await page.getByRole('link', { name: 'Experience' }).click();
-    await expect(page.getByTestId('experience-section').getByText('Tinubu Square – Insurance')).toBeVisible();
-    await expect(page.getByTestId('experience-section').getByRole('heading', { name: 'Lead Software Development Engineer in Test', level: 3 })).toBeVisible();
-    await expect(page.getByText('Sep 2024 – Present').first()).toBeVisible();
-    await expect(page.getByText('Derivco (Betway)').first()).toBeVisible();
-    await expect(page.getByTestId('experience-section').getByRole('heading', { name: 'Software Development Engineer in Test II', level: 3 })).toBeVisible();
+    await expect(page.getByTestId('experience-section').getByText('Thought Industries')).toBeVisible();
+    await expect(page.getByTestId('experience-section').getByRole('heading', { name: 'Lead Software Development Engineer in Test', level: 3 }).first()).toBeVisible();
+    await expect(page.getByText('Jun 2026 – Present').first()).toBeVisible();
+    await expect(page.getByText('Tinubu Square – Insurance').first()).toBeVisible();
+    await expect(page.getByTestId('experience-section').getByRole('heading', { name: 'Lead Software Development Engineer in Test', level: 3 }).nth(1)).toBeVisible();
   });
 
   test('should display highlights with impact metrics', async () => {
@@ -215,8 +215,8 @@ test.describe('Portfolio Page - Hiring Manager Persona (Corrected)', () => {
     await expect(page.getByRole('heading', { name: 'Alper Ozkan', level: 1 })).toBeVisible();
     await expect(page.getByTestId('hero-title')).toContainText('Lead Software Development Engineer in Test');
     await expect(page.getByText('New Smyrna Beach, FL')).toBeVisible();
-    await expect(page.getByText('Tinubu Square – Insurance').first()).toBeVisible();
-    await expect(page.getByText('Sep 2024 – Present').first()).toBeVisible();
+    await expect(page.getByText('Thought Industries').first()).toBeVisible();
+    await expect(page.getByText('Jun 2026 – Present').first()).toBeVisible();
   });
 
   test('should have multiple working contact methods', async () => {
@@ -265,12 +265,12 @@ test.describe('Portfolio Page - Hiring Manager Persona (Corrected)', () => {
   test('should verify experience timeline and progression', async () => {
     await gotoHome();
     await page.getByRole('link', { name: 'Experience' }).click();
-    await expect(page.getByTestId('experience-section').getByText('Tinubu Square – Insurance')).toBeVisible();
-    await expect(page.getByTestId('experience-section').getByRole('heading', { name: 'Lead Software Development Engineer in Test', level: 3 })).toBeVisible();
-    await expect(page.getByText('Sep 2024 – Present').first()).toBeVisible();
-    await expect(page.getByText('Derivco (Betway)').first()).toBeVisible();
-    await expect(page.getByTestId('experience-section').getByRole('heading', { name: 'Software Development Engineer in Test II', level: 3 })).toBeVisible();
-    await expect(page.getByText('Mentoring engineers')).toBeVisible();
+    await expect(page.getByTestId('experience-section').getByText('Thought Industries')).toBeVisible();
+    await expect(page.getByTestId('experience-section').getByRole('heading', { name: 'Lead Software Development Engineer in Test', level: 3 }).first()).toBeVisible();
+    await expect(page.getByText('Jun 2026 – Present').first()).toBeVisible();
+    await expect(page.getByText('Tinubu Square – Insurance').first()).toBeVisible();
+    await expect(page.getByTestId('experience-section').getByRole('heading', { name: 'Lead Software Development Engineer in Test', level: 3 }).nth(1)).toBeVisible();
+    await expect(page.getByText('Mentoring engineers').first()).toBeVisible();
     await expect(page.getByText('40%', { exact: false }).first()).toBeVisible();
   });
 

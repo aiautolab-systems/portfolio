@@ -45,7 +45,7 @@ test.describe('Portfolio Seed Tests', () => {
     const sections = [
       { navLink: 'nav-link-about', testId: undefined, content: 'Alper Ozkan' },
       { navLink: 'nav-link-skills', testId: 'skills-section', content: 'Playwright' },
-      { navLink: 'nav-link-experience', testId: 'experience-section', content: 'Tinubu Square' },
+      { navLink: 'nav-link-experience', testId: 'experience-section', content: 'Thought Industries' },
       { navLink: 'nav-link-highlights', testId: 'highlights-section', content: '40% less manual effort' },
       { navLink: 'nav-link-contact', testId: 'contact-section', content: 'Email Alper' },
     ] as const;
@@ -104,8 +104,8 @@ test.describe('Portfolio Seed Tests', () => {
     await expect(page.getByTestId('brand-name')).toHaveText('Alper Ozkan');
     await expect(page.getByTestId('brand-role')).toHaveText('Lead Software Development Engineer in Test');
 
-    await expect(page.locator('.hero-panel')).toContainText('Tinubu Square');
-    await expect(page.locator('.hero-panel')).toContainText('Sep 2024 – Present');
+    await expect(page.locator('.hero-panel')).toContainText('Thought Industries');
+    await expect(page.locator('.hero-panel')).toContainText('Jun 2026 – Present');
     await expect(page.locator('.hero-meta')).toContainText('New Smyrna Beach, FL');
 
     await page.getByTestId('nav-link-skills').click();

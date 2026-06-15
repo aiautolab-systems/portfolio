@@ -91,7 +91,7 @@ test.describe('Portfolio E2E Tests', () => {
     
     // Check for experience cards (4 based on content.js)
     const experienceCards = page.locator('.experience-card');
-    await expect(experienceCards).toHaveCount(4);
+    await expect(experienceCards).toHaveCount(5);
     
     // Check first experience card has required elements
     const firstCard = experienceCards.first();
