@@ -44,6 +44,10 @@ class AnalyticsService {
       return;
     }
 
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventType, eventData);
+    }
+
     try {
       const payload = {
         eventType,
