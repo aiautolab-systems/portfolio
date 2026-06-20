@@ -62,14 +62,14 @@ test.describe('Portfolio - Freelance Client Persona (Jennifer Walsh)', () => {
     // Check for recent, relevant experience
     await page.getByTestId('nav-link-experience').click();
     
-    // Current role shows relevant industry (Insurance)
+    // Current role shows relevant industry
     const currentRole = page.getByTestId('experience-card').first();
-    await expect(currentRole).toContainText('Tinubu Square – Insurance');
-    await expect(currentRole).toContainText('Sep 2024 – Present'); // Recent
+    await expect(currentRole).toContainText('Thought Industries');
+    await expect(currentRole).toContainText('Jun 2026 – Present'); // Recent
     
     // Previous experience shows diverse industries
-    const derivcoRole = page.getByTestId('experience-card').nth(1);
-    await expect(derivcoRole).toContainText('Derivco (Betway)'); // Gaming industry
+    const tinubuRole = page.getByTestId('experience-card').nth(1);
+    await expect(tinubuRole).toContainText('Tinubu Square – Insurance'); // Insurance industry
     
     // Check for cross-industry experience in profile section
     await page.getByTestId('nav-link-about').click();
@@ -106,7 +106,7 @@ test.describe('Portfolio - Freelance Client Persona (Jennifer Walsh)', () => {
     const experienceCards = page.getByTestId('experience-card');
     
     // Manual testing reduction
-    const derivcoRole = experienceCards.nth(1);
+    const derivcoRole = experienceCards.nth(2);
     await expect(derivcoRole).toContainText('cutting manual testing time by 40%');
     await expect(derivcoRole).toContainText('halve deployment time');
     await expect(derivcoRole).toContainText('increase release cadence by 40%');
@@ -116,9 +116,9 @@ test.describe('Portfolio - Freelance Client Persona (Jennifer Walsh)', () => {
     await expect(derivcoRole).toContainText('reduced data-related incidents');
     
     // Process optimizations
-    const currentRole = experienceCards.first();
-    await expect(currentRole).toContainText('reduce manual effort by 40%');
-    await expect(currentRole).toContainText('boost coverage and execution velocity');
+    const tinubuRole = experienceCards.nth(1);
+    await expect(tinubuRole).toContainText('reduce manual effort by 40%');
+    await expect(tinubuRole).toContainText('boost coverage and execution velocity');
   });
 
   test('should show startup and SMB-relevant technology stack', async () => {

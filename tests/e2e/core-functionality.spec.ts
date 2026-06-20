@@ -94,7 +94,7 @@ test.describe('Portfolio Page - Core Functionality', () => {
     const currentRolePanel = page.locator('.hero-panel .panel-card').first();
     await expect(currentRolePanel).toContainText('Currently');
     await expect(currentRolePanel).toContainText('Lead Software Development Engineer in Test');
-    await expect(currentRolePanel).toContainText('Tinubu Square');
-    await expect(currentRolePanel).toContainText('Sep 2024 – Present');
+    await expect(currentRolePanel).toContainText('Thought Industries');
+    await expect(currentRolePanel).toContainText('Jun 2026 – Present');
   });
 });

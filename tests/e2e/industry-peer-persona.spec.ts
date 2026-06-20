@@ -95,7 +95,7 @@ test.describe('Portfolio - Industry Peer Persona (David Kumar)', () => {
     // Different testing approaches
     await expect(page.getByText('BDD frameworks')).toBeVisible();
     await expect(page.getByText('data-driven suites')).toBeVisible();
-    await expect(page.getByText('component and API testing')).toBeVisible();
+    await expect(page.getByText('component and API testing').first()).toBeVisible();
     
     // Industry diversity
     await expect(page.getByText('insurance, gaming, and SaaS')).toBeVisible();
@@ -124,7 +124,7 @@ test.describe('Portfolio - Industry Peer Persona (David Kumar)', () => {
     await page.getByRole('link', { name: 'Experience' }).click();
     
     // Current leadership and mentoring role
-    await expect(page.getByText('Mentoring engineers on component and API testing')).toBeVisible();
+    await expect(page.getByText('Mentoring engineers on component and API testing').first()).toBeVisible();
     await expect(page.getByText('prevent defects earlier in the lifecycle')).toBeVisible();
     
     // Knowledge sharing through documentation and processes
@@ -181,8 +181,8 @@ test.describe('Portfolio - Industry Peer Persona (David Kumar)', () => {
     
     // Career progression from individual contributor to lead
     // Current lead role
-    await expect(page.getByTestId('experience-section').getByRole('heading', { name: 'Lead Software Development Engineer in Test', level: 3 })).toBeVisible();
-    await expect(page.getByText('Sep 2024 – Present').first()).toBeVisible();
+    await expect(page.getByTestId('experience-section').getByRole('heading', { name: 'Lead Software Development Engineer in Test', level: 3 }).first()).toBeVisible();
+    await expect(page.getByText('Jun 2026 – Present').first()).toBeVisible();
     
     // Previous senior role
     await expect(page.getByTestId('experience-section').getByRole('heading', { name: 'Software Development Engineer in Test II', level: 3 })).toBeVisible();
@@ -199,8 +199,8 @@ test.describe('Portfolio - Industry Peer Persona (David Kumar)', () => {
   test('should enable technical discussions and collaboration opportunities', async () => {
     await gotoHome();
     // Professional tagline should invite technical discussion
-    await expect(page.getByText('AI-powered test automation frameworks')).toBeVisible();
-    await expect(page.getByText('intelligent quality gates')).toBeVisible();
+    await expect(page.getByText('AI-powered test automation frameworks').first()).toBeVisible();
+    await expect(page.getByText('intelligent quality gates').first()).toBeVisible();
     await expect(page.getByText('self-healing, predictive QE systems')).toBeVisible();
     
     // Contact information should be easily accessible

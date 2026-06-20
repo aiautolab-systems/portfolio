@@ -58,9 +58,20 @@ export const skills = [
 
 export const experience = [
   {
+    company: 'Thought Industries',
+    role: 'Lead Software Development Engineer in Test',
+    period: 'Jun 2026 – Present',
+    bullets: [
+      'Leading testing initiatives for the Customer Learning & Intelligence Platform, focusing on Conversational AI and Omnichannel delivery reliability.',
+      'Architecting AI-powered test automation frameworks and intelligent quality gates that adapt to dynamic, personalized learning paths.',
+      'Mentoring engineers on component and API testing to ensure rapid content creation and distribution stability.',
+      'Instrumenting coverage and test analytics to measure platform performance and reduce onboarding times for new learning modules.',
+    ],
+  },
+  {
     company: 'Tinubu Square – Insurance',
     role: 'Lead Software Development Engineer in Test',
-    period: 'Sep 2024 – Present',
+    period: 'Sep 2024 – Jun 2026',
     bullets: [
       'Leading regression automation initiatives that boost coverage and execution velocity across critical workflows.',
       'Mentoring engineers on component and API testing to prevent defects earlier in the lifecycle.',
